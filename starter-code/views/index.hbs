@@ -1,7 +1,38 @@
-<nav>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <nav>
     <ul>
       <li><a href="/private">Profile</a></li>
       <li><a href="/auth/logout">Logout</a></li>
     </ul>
 </nav>
-<h1>HOME PAGE</h1>
+
+    <h1>Welcome to IronTumblr</h1>
+
+
+<div class="pictures-wrapper">
+  {{#each pictures}}
+    <div class="picture-item">
+      <img src="{{this.picPath}}" alt="">
+      <h4>{{this.picName}}</h4>
+      <p>{{this.content}}</p>
+    </div>
+  {{else}}
+    <p>There are no pictures yet! :(</p>
+  {{/each}}
+<a href="/sign-up"><button>Sign Up!</button></a>
+<a href="/login"><button>Login!</button></a>
+
+</div>
+
+  </body>
+</html>
+
+
+
+
