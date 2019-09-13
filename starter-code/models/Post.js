@@ -1,5 +1,5 @@
 const {Schema, model} = require('mongoose');
-const pictureSchema = new Schema(
+const postSchema = new Schema(
   {
     content: String,
     creatorId: String,
@@ -14,4 +14,4 @@ const pictureSchema = new Schema(
     timestamps: true
   }
 );
-module.exports = model('Picture', pictureSchema);
+module.exports = model('Post', postSchema);

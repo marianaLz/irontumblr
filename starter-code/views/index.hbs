@@ -5,19 +5,23 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <nav>
-    <ul>
-      <li><a href="/private">Profile</a></li>
-      <li><a href="/auth/logout">Logout</a></li>
-    </ul>
+<nav class="nav">
+  <a class="nav-link active" href="/">Home</a>
+  <a class="nav-link" href="/private">Profile</a>
+  <a class="nav-link" href="/auth/logout">Logout</a>
+  
 </nav>
+<div class="container">
+<div class="row">
 
     <h1>Welcome to IronTumblr</h1>
+    <br>
 
+<a href="/new"><button class="btn btn-primary">Upload photo</button></a>
 
-<div class="pictures-wrapper">
+<div class="pictures-wrapper row">
   {{#each pictures}}
-    <div class="picture-item">
+    <div class="picture-item ">
       <img src="{{this.picPath}}" alt="">
       <h4>{{this.picName}}</h4>
       <p>{{this.content}}</p>
@@ -25,11 +29,16 @@
   {{else}}
     <p>There are no pictures yet! :(</p>
   {{/each}}
-<a href="/sign-up"><button>Sign Up!</button></a>
-<a href="/login"><button>Login!</button></a>
+
 
 </div>
 
+
+
+
+
+</div>
+</div>
   </body>
 </html>
 

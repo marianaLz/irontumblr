@@ -1,7 +1,32 @@
-<nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-    </ul>
+
+<div class="container">
+
+<nav class="nav">
+  <a class="nav-link active" href="/">Home</a>
+  <a class="nav-link" href="/private">Profile</a>
+  <a class="nav-link" href="/auth/logout">Logout</a>
+  
 </nav>
+
+
+</div>
+<div class="container">
 <h1>PROFILE PAGE</h1>
+
+
+ <div class="card-stacked">
+        <div class="card-content">
+          <h5>Welcome!</h5>
+          <h4>{{User.username}}</h4>
+        </div>
+        <div class="card-action">
+          <p>{{User.email}}</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
 
