@@ -12,8 +12,10 @@ const isLoggedIn = (req, res, next) => {
 };
 
 /* GET home page */
-router.get("/", isLoggedIn, (req, res) => {
-  res.render("index");
+router.get("/", isLoggedIn, async (req, res)  => {
+  const posts = await Post.find()
+  console.log(posts)
+  res.render("index",{posts});
 });
 
 router.get('/private', isLoggedIn, (req, res) => {

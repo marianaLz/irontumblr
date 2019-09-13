@@ -1,11 +1,14 @@
-<form action="/new-post" method="POST" enctype="multipart/form-data">
-  <h2>Create new post</h2>
-
-  <label for="content">Content</label>
-  <input type="content" name="content" placeholder="">
-
-  <label>Post Image</label>
-  <input type="file" name="photo">
-
-  <button type="submit">Post</button>
-</form>
+<div class="container">
+  <form action="/new-post" method="POST" enctype="multipart/form-data">
+    <h2>Create new post</h2>
+    <div class="form-group">
+      <label for="content">Content</label>
+      <input class="form-control" type="content" name="content" placeholder="">
+    </div>
+    <div class="form-group">
+      <label>Post Image</label>
+      <input class="form-control-file" type="file" name="photo">
+    </div>
+    <button class="btn btn-info" type="submit">Post</button>
+  </form>
+</div>

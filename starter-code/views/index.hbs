@@ -1,7 +1,27 @@
-<nav>
-    <ul>
-      <li><a href="/private">Profile</a></li>
-      <li><a href="/auth/logout">Logout</a></li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Irontumblr</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item ">
+        <a class="nav-link" href="/private">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/auth/logout">Logout</a>
+      </li>
     </ul>
+  </div>
 </nav>
-<h1>HOME PAGE</h1>
+<div class="container">
+  <h1>Home Page</h1>
+  {{#each posts as |post|}}
+  <div class="post">
+    <p>{{post.content}}</p>
+    <img class="post-image" src="{{post.picPath}}" alt="">
+    <a href="/new-comment"><button class="btn btn-info">Comentar</button></a>
+  </div>
+  <hr>
+  {{/each}}
+</div>
