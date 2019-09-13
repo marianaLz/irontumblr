@@ -12,7 +12,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 //|| "mongodb://localhost/lab-file-upload"
 mongoose
-  .connect('mongodb+srv://Raul:1234@cluster0-sesse.mongodb.net/test?retryWrites=true&w=majority' , { useNewUrlParser: true })
+  .connect(process.env.DB , { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
