@@ -20,7 +20,7 @@ router.post('/signup', uploadCloud.single('photo'), async (req, res) => {
   const {url: imgPath, originalname: imgName} = req.file;
   await User.create({username, password, imgName, imgPath})
   .then(() => {
-    res.redirect('auth/login')
+    res.redirect('/auth/login')
   })
   .catch(err => {
     res.json(err);
