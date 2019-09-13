@@ -12,7 +12,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
 mongoose
-  .connect(process.env.DB || "mongodb://localhost/lab-file-upload", { useNewUrlParser: true })
+  .connect(process.env.DB || "mongodb://localhost/tumblr", { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -69,5 +69,7 @@ const index = require("./routes/index");
 const auth = require("./routes/auth");
 app.use("/", index);
 app.use("/auth", auth);   
+app.use('/', require('./routes/post'))
+app.use('/', require('./routes/comments'))
 
 module.exports = app;

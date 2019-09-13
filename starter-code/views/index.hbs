@@ -5,3 +5,25 @@
     </ul>
 </nav>
 <h1>HOME PAGE</h1>
+<h2>the posts</h2>
+
+<div class="post-container">
+  {{#each posts as |post|}}
+    <div class="post-item">
+      <img src="{{post.picPath}}" alt="">
+   
+      <p>{{post.content}}</p>
+    </div>
+  {{/each}}
+
+  <h2>Comments</h2>
+  <div class="post-comments">
+  {{#each comments as |comment|}}
+    <div class="comment-item">
+      <img src="{{comment.comImgPath}}" alt="{{comment.comImgName}}">
+      <p>{{comment.content}}</p>
+    </div>
+  {{/each}}
+ 
+
+</div>
