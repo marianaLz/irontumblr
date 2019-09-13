@@ -29,9 +29,13 @@ router.get('/new-post', isLoggedIn, (req, res) => {
 router.post('/new-post', isLoggedIn, uploadCloud.single('photo'), async (req, res) => {
   const { content } = req.body
   const {originalname:picName, url:picPath} = req.file
-  //const creatorId = req.user._id
+  //const creatorId = req.user._id //no lo reconoce
   await Post.create({ content, picName, picPath })
   res.redirect('/')
+});
+
+router.get('/new-comment/:id', isLoggedIn, (req, res) => {
+  res.render('private')
 });
 
 module.exports = router;
