@@ -12,7 +12,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
 mongoose
-  .connect(process.env.DB || "mongodb://localhost/lab-file-upload", { useNewUrlParser: true })
+  .connect(process.env.DB || "mongodb://localhost/irontumblr", { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -63,11 +63,13 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // default value for title local
-app.locals.title = "Express - Generated with IronGenerator";
+app.locals.title = "IronTumblr";
 
 const index = require("./routes/index");
 const auth = require("./routes/auth");
+const post = require("./routes/post");
 app.use("/", index);
-app.use("/auth", auth);   
+app.use("/auth", auth); 
+app.use("/", post);   
 
 module.exports = app;

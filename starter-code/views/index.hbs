@@ -1,7 +1,34 @@
-<nav>
-    <ul>
-      <li><a href="/private">Profile</a></li>
-      <li><a href="/auth/logout">Logout</a></li>
-    </ul>
-</nav>
-<h1>HOME PAGE</h1>
+<div class="container">
+  <nav>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a href="/private" class="nav-link active">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a href="/add" class="nav-link active">Add a post!</a>
+        </li>
+        <li class="nav-item">
+          <a href="/auth/logout" class="nav-link">Logout</a>
+        </li>
+      </ul>
+  </nav>
+  <br><br>
+  <h2>Home</h2>
+  <br>
+
+  {{#each posts as |post|}}
+  <div class="container shadow p-3 mb-5 bg-white rounded">
+    <h4>{{title}}</h4>
+    <img src="{{picPath}}" alt="">
+    <p>{{content}}</p>
+    <small>By: <b>{{creator.username}}</b></small><br><br>
+    <a href="/show/{{_id}}">
+      <button class="btn btn-primary">See more</button>
+    </a>
+  </div>
+  {{else}}
+  <div class="alert alert-warning" role="alert">
+    There are no posts yet! :(
+  </div>
+  {{/each}}
+</div>

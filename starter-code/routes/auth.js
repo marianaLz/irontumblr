@@ -2,20 +2,25 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
+const uploadCloud = require('../config/cloudinary')
 
 router.get('/signup', (req, res) => {
   res.render('sign-up');
 });
 
-router.post('/signup', (req, res) => {
+router.post('/signup', uploadCloud.single('photo'), async (req, res) => {
   let {username, password} = req.body;
+  let {url: imgPath} = req.file
+
   if (!password) return res.render('sign-up', {err: 'Empty password'});
   if (!username) return res.render('sign-up', {err: 'Empty username'});
+
   const salt = 10;
   const bsalt = bcrypt.genSaltSync(salt);
   password = bcrypt.hashSync(password, bsalt);
-  console.log(password);
-  User.create({username, password})
+  console.log(imgPath);
+
+  await User.create({username, imgPath, password})
   .then(() => {
     res.redirect('/auth/login')
   })

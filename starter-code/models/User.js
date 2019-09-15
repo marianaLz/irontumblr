@@ -11,7 +11,8 @@ const userSchema = new Schema({
     type: String,
     trim: true,
     required: true
-  }
+  },
+  imgPath: String,
 },
 { timestamps: true }
 );
