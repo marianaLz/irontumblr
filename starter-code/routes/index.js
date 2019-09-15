@@ -8,7 +8,7 @@ const isLoggedIn = (req, res, next) => {
   if (req.session.currentUser) {
     next()
   } else {
-    res.redirect("/");
+    res.redirect("/")
   }
 };
 
@@ -16,11 +16,11 @@ const isLoggedIn = (req, res, next) => {
 router.get("/", async (req, res) => {
   const posts = await Post.find()
   const comments = await Comment.find()
-  res.render("index", {posts, comments});
+  res.render("index", { posts, comments });
 });
 
 router.get('/private', isLoggedIn, (req, res) => {
   res.render('private')
-});
+})
 
 module.exports = router;
